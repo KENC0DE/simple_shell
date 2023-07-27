@@ -7,7 +7,7 @@ This is a simple UNIX shell implementation written in C. It provides basic funct
 To get started, clone this repository:
 
 ```
-git clone https://github.com/your-username/simple_shell.git
+git clone https://github.com/KENC0DE/simple_shell.git
 ```
 
 Compile the shell using the following command:
