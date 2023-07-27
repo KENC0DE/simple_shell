@@ -60,11 +60,21 @@ int env_f(hsh_t *sh)
 */
 int setenv_f(hsh_t *sh)
 {
-	if (setenv(sh->cmd[1], sh->cmd[2], 1) != 0)
+	if (sh->cmd[1] && sh->cmd[2])
+	{
+		if (setenv(sh->cmd[1], sh->cmd[2], 1) != 0)
+		{
+			if (FROM_SCREEN)
+				perror("Error");
+		}
+	}
+	else
 	{
 		if (FROM_SCREEN)
 			perror("Error");
 	}
+		
+
 	return (SKIP);
 }
 
