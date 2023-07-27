@@ -20,6 +20,13 @@ int exit_f(hsh_t *sh)
 	else if (sh->cmd[1])
 	{
 		sh->exit_stat = atoi(sh->cmd[1]);
+		if (sh->exit_stat == 0 || sh->exit_stat < 0)
+		{
+			put_err_exit(sh);
+			if (!FROM_SCREEN)
+				sh->exit_stat = 2;
+			return (SKIP);
+		}
 		return (_EXIT);
 	}
 	return (0);

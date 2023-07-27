@@ -12,5 +12,7 @@
 #define C_ERROR ": command not found\n"
 #define CMD_TRY do { sh->nth_cmd += 1; } while (0)
 #define CMD_ERR ": not found\n"
+#define EXIT_ERR ": numeric argument required"
+#define EXIT_ERR2 ": Illegal number: "
 
 #endif
