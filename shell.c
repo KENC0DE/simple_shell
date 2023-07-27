@@ -6,6 +6,14 @@
 */
 void Terminate(hsh_t *sh)
 {
+	int e;
+
+	if (sh->exit_stat)
+	{
+		e = sh->exit_stat;
+		free(sh);
+		exit(e);
+	}
 	if (FROM_SCREEN)
 	{
 		free(sh);

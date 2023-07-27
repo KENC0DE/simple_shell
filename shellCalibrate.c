@@ -22,6 +22,7 @@ void initialize(hsh_t *sh, char **envp, char *p_name)
 	sh->ex_child = 1;
 	sh->nth_cmd = 0;
 	sh->cmd_state = 0;
+	sh->exit_stat = 0;
 }
 
 /**
