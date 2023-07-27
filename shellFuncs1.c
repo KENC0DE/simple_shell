@@ -53,8 +53,6 @@ int errorhandle(hsh_t *sh, int er)
 			sh->cmd_state = 1;
 			return (SKIP);
 		case _EXIT:
-			if (FROM_SCREEN)
-				_put("exit\n");
 			return (_EXIT);
 	}
 

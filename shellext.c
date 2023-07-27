@@ -7,6 +7,11 @@
 */
 int exit_f(hsh_t *sh)
 {
+	int len;
+	char *ern = "numeric argument required";
+	char *ern2 = "Illegal number";
+
+	printf("exit\n");
 	if (sh->signal)
 	{
 		sh->exit_stat = sh->signal;
@@ -19,7 +24,20 @@ int exit_f(hsh_t *sh)
 	}
 	else if (sh->cmd[1])
 	{
+		len = str_len(sh->cmd[1]);
 		sh->exit_stat = atoi(sh->cmd[1]);
+		if (sh->exit_stat == 0 && len > 1)
+		{
+			sh->exit_stat = 2;
+			printf("%s: %s: %s: %s\n", sh->sh_name, sh->cmd[0], sh->cmd[1], ern);
+			return (_EXIT);
+		}
+		else if (sh->exit_stat < 0)
+		{
+			sh->exit_stat = 2;
+			printf("%s: %s: %s: %s\n", sh->sh_name, sh->cmd[0], sh->cmd[1], ern2);
+			return (_EXIT);
+		}
 		return (_EXIT);
 	}
 	return (0);
