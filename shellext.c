@@ -73,8 +73,6 @@ int setenv_f(hsh_t *sh)
 		if (FROM_SCREEN)
 			perror("Error");
 	}
-		
-
 	return (SKIP);
 }
 
@@ -85,7 +83,16 @@ int setenv_f(hsh_t *sh)
 */
 int unsetenv_f(hsh_t *sh)
 {
-	if (unsetenv(sh->cmd[1]) != 0)
+	if (sh->cmd[1])
+	{
+		if (unsetenv(sh->cmd[1]) != 0)
+		{
+			if (FROM_SCREEN)
+				perror("Error");
+		}
+		return (SKIP);
+	}
+	else
 	{
 		if (FROM_SCREEN)
 			perror("Error");
