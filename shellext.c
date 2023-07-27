@@ -7,6 +7,11 @@
 */
 int exit_f(hsh_t *sh)
 {
+	if (sh->signal)
+	{
+		sh->exit_stat = sh->signal;
+		return (_EXIT);
+	}
 	if (sh->cmd[1] == NULL)
 	{
 		sh->exit_stat = 0;
@@ -19,7 +24,6 @@ int exit_f(hsh_t *sh)
 	}
 	return (0);
 }
-	
 
 /**
  * env_f - execute printenve.

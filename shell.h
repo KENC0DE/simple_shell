@@ -36,6 +36,7 @@
  * @er_name: Name used for error
  * @nth_cmd: Command number
  * @cmd_state: state.
+ * @signal: sig
  */
 typedef struct hsh_t
 {
@@ -58,6 +59,7 @@ typedef struct hsh_t
 	char *er_name;            /* Name used for error */
 	unsigned int nth_cmd;     /* Command number */
 	int cmd_state;		/* Command state */
+	int signal;		/* signal for exit */
 } hsh_t;
 
 /**

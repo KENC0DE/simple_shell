@@ -34,6 +34,9 @@ int runTimeLoop(hsh_t *sh, btns_t *btn)
 			if (sh->id != 0)
 			{
 				wait(&(sh->waitStat));
+				if (WIFEXITED(sh->waitStat))
+					errno = WEXITSTATUS(sh->waitStat);
+				sh->signal = errno;
 				freeMem(sh);
 			}
 		}
