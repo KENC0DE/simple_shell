@@ -92,6 +92,8 @@ char *intToCharArray(int number);
 int countDigits(int number);
 char *toChar(int num);
 int put_err_exit(hsh_t *sh);
+int setenv_f(hsh_t *sh);
+int unsetenv_f(hsh_t *sh);
 
 /* shell functions */
 void checkInteractive(hsh_t *sh);

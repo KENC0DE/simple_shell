@@ -29,7 +29,7 @@ int exit_f(hsh_t *sh)
 		}
 		return (_EXIT);
 	}
-	return (0);
+	return (0); /* return for nothing to do */
 }
 
 /**
@@ -51,4 +51,33 @@ int env_f(hsh_t *sh)
 		return (SKIP);
 	}
 	return (0);
+}
+
+/**
+ * setenv_f - set's invironment.
+ * @sh: big var.
+ * Return: SKIP.
+*/
+int setenv_f(hsh_t *sh)
+{
+	if (setenv(sh->cmd[1], sh->cmd[2], 1) != 0)
+	{
+		perror("Error");
+		return (SKIP);
+	}
+	return (SKIP);
+}
+
+/**
+ * unsetenv_f - unsets variable
+ * @sh: big var.
+ * Return: SKIP.
+*/
+int unsetenv_f(hsh_t *sh)
+{
+	if (unsetenv(sh->cmd[1]) != 0)
+	{
+		perror("Error");
+	}
+	return (SKIP);
 }
