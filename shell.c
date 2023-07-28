@@ -43,7 +43,7 @@ int main(int ac, char *av[], char *envp[])
 {
 	hsh_t *sh;
 	btns_t btn[] = {{"exit", exit_f}, {"env", env_f}, {"setenv", setenv_f},
-			{"unsetenv", unsetenv_f}, {NULL, NULL}
+			{"unsetenv", unsetenv_f}, {"cd", cd_f}, {NULL, NULL}
 		};
 
 	sh = malloc(sizeof(hsh_t));

@@ -37,6 +37,7 @@
  * @nth_cmd: Command number
  * @cmd_state: state.
  * @signal: sig
+ * @cwd: working directory.
  */
 typedef struct hsh_t
 {
@@ -60,6 +61,7 @@ typedef struct hsh_t
 	unsigned int nth_cmd;     /* Command number */
 	int cmd_state;		/* Command state */
 	int signal;		/* signal for exit */
+	char *cwd;		/* current working directory */
 } hsh_t;
 
 /**
@@ -82,6 +84,10 @@ char *str_cpy(char *str);
 int _put(char *str);
 int str_comp(char *str1, char *str2);
 void reverseString(char *str);
+char *cwd_adjust(char *current_dir, char *new_dir);
+char *_strcat(char *destination, char *source);
+char *_strcpy(char *destination, const char *source);
+int put_err_cd(hsh_t *sh);
 
 /* Addons */
 int shell_do(hsh_t *sh, btns_t *btn);
@@ -94,6 +100,7 @@ char *toChar(int num);
 int put_err_exit(hsh_t *sh);
 int setenv_f(hsh_t *sh);
 int unsetenv_f(hsh_t *sh);
+int cd_f(hsh_t *sh);
 
 /* shell functions */
 void checkInteractive(hsh_t *sh);

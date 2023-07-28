@@ -24,6 +24,7 @@ void initialize(hsh_t *sh, char **envp, char *p_name)
 	sh->cmd_state = 0;
 	sh->exit_stat = 0;
 	sh->signal = 0;
+	sh->cwd = getenv("PWD");
 }
 
 /**

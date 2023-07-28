@@ -11,7 +11,7 @@
 
 /* strings */
 #define C_ERROR ": command not found\n"
-#define XDIR ": No such file or directory"
+#define XDIR ": No such file or directory\n"
 #define CMD_ERR ": not found\n"
 #define EXIT_ERR ": numeric argument required"
 #define EXIT_ERR2 ": Illegal number: "
